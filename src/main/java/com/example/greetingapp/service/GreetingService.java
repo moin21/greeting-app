@@ -12,7 +12,8 @@ public class GreetingService {
      *
      * @return - Hello !!!
      */
-    public String sayHello() {
-        return "Hello !!!";
+
+    public String sayHelloByName(String firstName, String lastName) {
+        return "Hello " + firstName + " " + lastName + "!!!";
     }
 }

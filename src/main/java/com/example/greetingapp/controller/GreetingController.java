@@ -3,7 +3,10 @@ package com.example.greetingapp.controller;
 import com.example.greetingapp.service.GreetingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.Optional;
 
 /**
  * Rest Controller Class: GreetingController.
@@ -22,10 +25,15 @@ public class GreetingController {
      *
      * @return - greetingService.sayHello
      */
+
     @GetMapping("/hello")
-    public String sayHello() {
-        return greetingService.sayHello();
+    public String sayPosting(@RequestParam(required = false) String firstName, @RequestParam(required = false) String lastName) {
+        if (lastName == null) lastName = "";
+        else if (firstName == null) firstName = "";
+        else if (firstName == null && lastName == null) {
+            firstName = "";
+            lastName = "";
+        }
+        return greetingService.sayHelloByName(firstName, lastName);
     }
-
-
 }
