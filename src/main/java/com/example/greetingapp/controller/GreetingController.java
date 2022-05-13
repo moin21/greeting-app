@@ -51,4 +51,9 @@ public class GreetingController {
         List<User> response = greetingService.sayHelloAll();
         return response;
     }
+    @DeleteMapping ("/user/{id}")
+    public String  deleteUser (@PathVariable int id){
+        String response = greetingService.deleteById(id);
+        return response;
+    }
 }
