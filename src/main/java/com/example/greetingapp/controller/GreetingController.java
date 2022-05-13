@@ -40,4 +40,9 @@ public class GreetingController {
         User newuser = greetingService.sayHello(user);
         return newuser;
     }
+    @GetMapping("/get/{id}")
+    public Optional<User> sayHelloById (@PathVariable int id){
+        Optional<User> response = greetingService.sayHelloById(id);
+        return response;
+    }
 }
